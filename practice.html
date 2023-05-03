@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Practice raf khata</h1>
+    <button class="buy-now-btn" data-product-id="123">Buy Now</button>
+    <script>
+        const cart = ["123", "456", "789"]; // Hold the IDs of items in the cart
+
+            const removeProduct = (productId) => {
+                const productIndex = cart.indexOf(productId); // Find the index of the product ID
+                if (productIndex !== -1) {
+                    cart.splice(productIndex, 1); // Remove the product from the cart
+                }
+            };
+
+            const buyButtons = document.getElementsByClassName("buy-now-btn"); // Select all buy buttons
+
+            for (let i = 0; i < buyButtons.length; i++) {
+                const button = buyButtons[i];
+                button.addEventListener("click", () => {
+                    const productId = button.getAttribute("data-product-id"); // Get the product ID from the data attribute
+                    removeProduct(productId); // Remove the product from the cart
+                    console.log(`Product ${productId} removed from cart`); // Log a message to the console
+                });
+            }
+
+    </script>
+</body>
+</html>
